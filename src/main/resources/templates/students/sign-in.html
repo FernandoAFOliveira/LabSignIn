@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Sign-In</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+</head>
+<body>
+    <h2>Student Sign-In</h2>
+    <form th:action="@{/students/sign-in}" th:object="${student}" method="post">
+        <p>
+            <label>First Name: <input type="text" th:field="*{firstName}"/></label>
+        </p>
+        <p>
+            <label>Last Name: <input type="text" th:field="*{lastName}"/></label>
+        </p>
+        <p>
+            <label>Email: <input type="email" th:field="*{email}" pattern=".*@mail\.valenciacollege\.edu$" title="Email must end with @mail.valenciacollege.edu"/></label>
+        </p>        
+        <p>
+            <label>Course:
+                <select th:field="*{course}">
+                    <option th:each="course : ${courses}" 
+                            th:value="${course.id}" 
+                            th:text="${course.courseName}">Course name</option>
+                </select>
+            </label>
+        </p>
+        
+        <p>
+            <input type="submit" value="Sign In"/>
+        </p>
+    </form>
+</body>
+</html>
