@@ -8,20 +8,18 @@
 </head>
 <body>
     <h2>Student Visit Sign-In</h2>
-    <form th:action="@{/visits/sign-in}" th:object="${visit}" method="post">
-        <!-- Student selection dropdown -->
+    <form th:action="@{/visits/sign-in}" method="post">
         <p>
             <label for="student">Student:</label>
-            <select th:field="*{student}">
+            <select name="student">
                 <option th:each="student : ${students}" 
                         th:value="${student.id}" 
                         th:text="${student.firstName} + ' ' + ${student.lastName}"></option>
             </select>
         </p>
-        <!-- Course selection dropdown -->
         <p>
             <label for="course">Course:</label>
-            <select th:field="*{course}">
+            <select name="course">
                 <option th:each="course : ${courses}" 
                         th:value="${course.id}" 
                         th:text="${course.courseName}"></option>
@@ -29,5 +27,6 @@
         </p>
         <p><input type="submit" value="Sign In"/></p>
     </form>
+    
 </body>
 </html>

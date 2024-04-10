@@ -10,13 +10,14 @@
         └── settings.json
     └── 📁data
         └── LabSignInDB.mv.db
-        └── LabSignInDB.trace.db
     └── 📁docs
         └── folder-structure.md
     └── HELP.md
+    └── LICENSE
     └── mvnw
     └── mvnw.cmd
     └── pom.xml
+    └── README.MD
     └── 📁src
         └── 📁main
             └── 📁java
@@ -121,7 +122,7 @@
                         └── createdFiles.lst
                         └── inputFiles.lst
         └── 📁surefire-reports
-            └── 2024-04-09T13-24-07_269.dumpstream
+            └── 2024-04-09T19-32-56_145.dumpstream
         └── 📁test-classes
             └── 📁com
                 └── 📁advancedjava
