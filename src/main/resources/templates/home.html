@@ -1,14 +1,68 @@
+<!-- File: src/main/resources/templates/home.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Lab Sign-In</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+    <style>
+        #message {
+            position: fixed; /* Fixed position to make it visible */
+            top: 50%;        /* Center vertically in the middle */
+            left: 50%;       /* Center horizontally in the middle */
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: none;   /* Hide by default */
+            z-index: 1000;   /* Make sure it's on top of other elements */
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Valencia West Campus Lab</h1>
-    <p>Please sign in bellow.</p>
-    <a href="/students/sign-in">Student Sign-In</a> | <a href="/courses">View Courses</a>
+    <div class="container">
+        <h1>Welcome to the Valencia West Campus Lab</h1>
+        <p>Please sign in below.</p>
+        <h2>Lab Student Sign-In</h2>
+        <div id="message" th:if="${message}" th:text="${message}"></div>
+        <form th:action="@{/sign-in}" th:object="${student}" method="post">
+            <p>
+                <label>First Name: <input type="text" th:field="*{firstName}" required/></label>
+            </p>
+            <p>
+                <label>Last Name: <input type="text" th:field="*{lastName}" required/></label>
+            </p>
+            <p>
+                <label>Email: <input type="email" th:field="*{email}" pattern=".*@mail\.valenciacollege\.edu$" title="Email must end with @mail.valenciacollege.edu" required/></label>
+            </p>        
+            <p>
+                <label>Course:
+                    <select th:field="*{course}" required>
+                        <option value="" disabled selected>Select your course</option>
+                        <option th:each="course : ${courses}" 
+                                th:value="${course.id}" 
+                                th:text="${course.courseName}"></option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <input type="submit" value="Sign In"/>
+            </p>
+        </form>
+    </div>
+    <script>
+        window.onload = function() {
+            var msgDiv = document.getElementById('message');
+            if (msgDiv) {
+                msgDiv.style.display = 'block'; // Make the message visible
+                setTimeout(function() {
+                    msgDiv.style.display = 'none'; // Hide the message after 3 seconds
+                }, 3000); // 3000 milliseconds = 3 seconds
+            }
+        };
+    </script>
 </body>
-
 </html>

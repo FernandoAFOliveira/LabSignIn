@@ -1,12 +1,25 @@
+<!-- File: src/main/resources/templates/students/sign-in.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Student Sign-In</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+    <style>
+        #message {
+            position: fixed; /* Fixed position to keep it at the bottom */
+            bottom: 10px;    /* Distance from the bottom */
+            width: 100%;     /* Full width */
+            text-align: center; /* Center align text */
+            z-index: 1000;   /* Make sure it's on top of other elements */
+            display: none;   /* Hide by default */
+        }
+    </style>
 </head>
 <body>
     <h2>Student Sign-In</h2>
+    <div id="message" th:if="${message}" th:text="${message}"></div>
     <form th:action="@{/students/sign-in}" th:object="${student}" method="post">
         <p>
             <label>First Name: <input type="text" th:field="*{firstName}"/></label>
@@ -31,5 +44,16 @@
             <input type="submit" value="Sign In"/>
         </p>
     </form>
+    <script>
+        window.onload = function() {
+            var msgDiv = document.getElementById('message');
+            if (msgDiv) {
+                msgDiv.style.display = 'block'; // Make the message visible
+                setTimeout(function() {
+                    msgDiv.style.display = 'none'; // Hide the message after 3 seconds
+                }, 3000); // 3000 milliseconds = 3 seconds
+            }
+        };
+    </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* file: ../resources/static/css/main.css */
 /* Reset some basic elements */
 body, h1, h2, h3, h4, h5, h6, p, ul {
     margin: 0;
@@ -8,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    padding: 20px 5vw; /* Adding general padding to center the content a bit */
 }
 
 /* Container */
@@ -60,4 +62,22 @@ header .highlight, header .current a {
 header a:hover {
     color: #ffffff;
     font-weight: bold;
+}
+
+/* Success message styling */
+#message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: none;
+    width: auto;
+    max-width: 80%;
+    text-align: center;
 }

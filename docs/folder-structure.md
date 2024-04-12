@@ -6,10 +6,12 @@
             └── maven-wrapper.jar
             └── maven-wrapper.properties
     └── 📁.vscode
+        └── extensions.json
         └── launch.json
         └── settings.json
     └── 📁data
         └── LabSignInDB.mv.db
+        └── LabSignInDB.trace.db
     └── 📁docs
         └── folder-structure.md
     └── HELP.md
@@ -25,10 +27,7 @@
                     └── 📁advancedjava
                         └── 📁LabSignIn
                             └── 📁controller
-                                └── CourseController.java
                                 └── HomeController.java
-                                └── StudentController.java
-                                └── VisitController.java
                             └── CourseDataLoader.java
                             └── LabSignIn.java
                             └── 📁model
@@ -46,18 +45,13 @@
             └── 📁resources
                 └── application.properties
                 └── courses.csv
+                └── logback-spring.xml
                 └── 📁static
                     └── 📁css
                         └── main.css
                 └── 📁templates
-                    └── 📁courses
-                        └── list.html
-                        └── new.html
                     └── home.html
                     └── 📁students
-                        └── list.html
-                        └── sign-in.html
-                    └── 📁visits
                         └── sign-in.html
         └── 📁test
             └── 📁java
@@ -72,10 +66,7 @@
                 └── 📁advancedjava
                     └── 📁LabSignIn
                         └── 📁controller
-                            └── CourseController.class
                             └── HomeController.class
-                            └── StudentController.class
-                            └── VisitController.class
                         └── CourseDataLoader.class
                         └── LabSignIn.class
                         └── 📁model
@@ -91,19 +82,16 @@
                             └── StudentService.class
                             └── VisitService.class
             └── courses.csv
+            └── logback-spring.xml
             └── 📁static
                 └── 📁css
                     └── main.css
             └── 📁templates
                 └── 📁courses
-                    └── list.html
-                    └── new.html
                 └── home.html
                 └── 📁students
-                    └── list.html
                     └── sign-in.html
-                └── 📁visits
-                    └── sign-in.html
+                ├── visits
         └── 📁generated-sources
             ├── annotations
         └── 📁generated-test-sources
@@ -122,7 +110,7 @@
                         └── createdFiles.lst
                         └── inputFiles.lst
         └── 📁surefire-reports
-            └── 2024-04-09T19-32-56_145.dumpstream
+            └── 2024-04-12T13-04-20_544.dumpstream
         └── 📁test-classes
             └── 📁com
                 └── 📁advancedjava
